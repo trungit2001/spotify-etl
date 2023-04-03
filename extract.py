@@ -57,10 +57,10 @@ def retrieve_data() -> pd.DataFrame:
         timestamps.append(song["played_at"][:10])
 
     songs = {
-        "songs_name": songs_name,
-        "artists_name": artists_name,
+        "song_name": songs_name,
+        "artist_name": artists_name,
         "played_at": played_at,
-        "timestamps": timestamps
+        "timestamp": timestamps
     }
 
     song_df = pd.DataFrame(songs, columns=songs.keys())
