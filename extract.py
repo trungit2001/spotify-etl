@@ -8,6 +8,18 @@ token = get_access_token()
 
 
 def retrieve_data() -> pd.DataFrame:
+    """Extract data from Spotify API response,
+    has songs from the last 24 hours, including
+    song title, artist name, played at and
+    timestamp for each song
+
+    Raises:
+        Exception: If can't get data from requests
+
+    Returns:
+        pd.DataFrame: Data frame after extract from
+        Spotify API response
+    """
     today = datetime.now()
     yesterday = today - timedelta(days=1)
     yesterday_unix_timestamp = int(yesterday.timestamp()) * 1000
@@ -37,6 +49,7 @@ def retrieve_data() -> pd.DataFrame:
     played_at = []
     timestamps = []
 
+    # Extracting only the relevant bits of data from the json object
     for song in data["items"]:
         songs_name.append(song["track"]["name"])
         artists_name.append(song["track"]["album"]["artists"][0]["name"])
