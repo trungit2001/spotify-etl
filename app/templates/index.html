@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Get Spotify Code</title>
+</head>
+<body>
+    <h1>Welcome to get Spotify Code tool</h1>
+    <br/>
+    <div>
+        <p>Spotify Code:</p>
+        <textarea id="textBox">{{code}}</textarea>
+        <button onclick="copyText()">Copy</button>
+    </div>
+
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("textBox");
+            copyText.select();
+            if (copyText.value === "") {
+                alert("No code to copy")
+            } else {
+                navigator.clipboard.writeText(copyText.value);
+                alert("Copied code");
+            }
+        }
+    </script>
+</body>
+</html>
