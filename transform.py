@@ -3,7 +3,7 @@ import pandas as pd
 from extract import retrieve_data
 
 
-def data_verify(df: pd.DataFrame) -> bool:
+def verify_data(df: pd.DataFrame) -> bool:
     """Used to check for empty data frame, enforce
     unique constraint, checking for null values.
 
@@ -56,6 +56,6 @@ def transform_data(df: pd.DataFrame) -> pd.DataFrame:
 
 if __name__ == "__main__":
     load_df = retrieve_data()
-    data_verify(load_df)
+    verify_data(load_df)
     transformed_df = transform_data(load_df)
     print(transformed_df)
